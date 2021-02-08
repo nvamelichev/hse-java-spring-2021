@@ -1,0 +1,377 @@
+----
+
+JAVA BUILDS
+
+  Industry standard is Maven (https://maven.apache.org/what-is-maven.html)
+
+  Objectives:
+  * Easier build (Declarative vs. imperative (make, Ant))
+  * Uniform build system (Key build principles don't vary from project to project). Plugin architecture
+  * Better development practices (consistent project layout, e.g. separate tests from source)
+  * Quality project information (dependency graphs, code coverage reports etc.)
+
+  Philosophy is "Convention over configuration":
+    The more you conform to conventions, the less you have to customize 
+    (but customization IS possible, it just can be verbose and uncomfortable to use).
+
+  Not very fun syntax (XML), but that can be changed (polyglot-maven, https://github.com/takari/polyglot-maven)
+  Many orgs adopt Gradle, a Groovy DSL for builds which uses SAME concepts as Maven
+----
+INSTALLATION
+
+Bundled with IntelliJ IDEA.
+E.g. If IDEA is in /opt/idea, add to your
+~/.bash_aliases / ~/.zshrc:
+    alias mvn='/bin/sh /opt/idea/plugins/maven/lib/maven3/bin/mvn'
+and then you can use the mvn command :-)
+
+Via Package Manager:
+    sudo apt-get install maven3   # Ubuntu
+    brew install maven            # Mac OS
+
+From Official Site:
+https://maven.apache.org/download.cgi
+
+
+
+
+----
+PROJECTS AND ARTIFACTS
+
+- "Project" is the central entity. It is defined by Project Object Model (POM), most commonly expressed through XML (pom.xml).
+- Projects build produces an Artifact, e.g. JAR file, DEB package, ZIP archive with HTML pages, whatever.
+
+- Artifact is identified by its Coordinates:
+
+    groupId:artifactId:[classifier:]version
+
+    - groupId is same as main package, typically reverse.dns.name, e.g. yandex.cloud
+    - artifactId is kebab-case, e.g. cloud-sdk-java
+
+- Versioning is *MOSTLY* SemVer, excepting a few rarely encountered cases (beta, alpha, RC).
+  - Snapshot and Release versions:
+    - xxx-SNAPSHOT = "development snapshot". Multiple w/same ver allowed, latest by mtime is picked during build
+    - Release = stable release artifact, immutable
+
+--- Aside: Default Artifact type produced is a JAR file ("Java ARchive").
+  JAR files are just fancy ZIP archives which contain compiled Java classes and some metainformation (META-INF/)
+
+  Most importand metainformation is the Manifest (META-INF/MANIFEST.MF):
+    Manifest-Version: 1.0
+    Main-Class: <Fully Qualified Main Class Name>
+
+  META-INF/ directory also MAY contain:
+  - digital signature files (*.RSA, *.DSA, SIG-*)
+  - service provider definitions (META-INF/services/<FQCN of Service Class Impl>)
+    We will discuss ServiceLocator and Dependency Injection
+  - ...
+
+  @see https://docs.oracle.com/javase/7/docs/technotes/guides/jar/jar.html
+
+----
+
+ARTIFACT REPOSITORY
+
+- Artifacts are stored in a Repository.
+  - There is always the local repository (~/.m2/repository). 
+  - Remote repository: default is Maven Central, the main Maven Repository (search it via mvnrepository.com). There is also JCenter. Maven Central and JCenter significantly overlap. 
+  - At work, you will typically have a "proxy" remote repository that delivers both proprietary artifacts and artifacts from Maven Central, JCenter etc.
+
+- Large artifact repositories are the reason that Maven became successful. (And they are useful enough to be used by other build tools, e.g. Gradle, sbt, Ivy, etc.)
+
+- Maven build (e.g. mvn clean) will download all the artifacts necessary (plugins AND dependencies) to build your project,
+first trying the local repository.
+- NB: Artifact resolution errors cached for 1h. If Maven could not download an artifact, REMOVE the corresponding folder from ~/.m2/repository.
+    Otherwise subsequent retries by Maven will fail to resolve the artifact.
+
+----
+DEPENDENCIES (http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
+- To depend on other projects' artifacts:
+
+  <dependencies>
+    <dependency>
+       <groupId>junit</groupId>
+       <artifactId>junit</artifactId>
+       <version>4.13.1</version> <!-- DO NOT use: Version Ranges -->
+       [<scope>{compile|test|provided|runtime|import}</scope>
+       <!-- provided=JDK/container, runtime=needed for execution -->
+       [<type>pom</type> <!-- "Bill of Materials" POMs containing typically needed dependencies, e.g. everything for logging/JSON/... -->]
+       [<type>test-jar</type> <!-- NOT Recommended -->]
+       [<optional>true</optional> <!-- For optional functionality -->]
+    </dependency>
+  </dependencies>
+
+- scope=compile dependencies are transitive! (But other scopes are NOT transitive.)
+  To see the dependency tree, run:
+    mvn dependency:tree
+
+- Exclusions: use them when you got multiple versions of a dependency because of transitivity
+  <exclusions>
+      <exclusion>
+          <groupId>...</groupId>
+          <artifactId>...</artifactId> <!-- but no version, as Maven already knows the versions of all the artifact's dependencies
+      </exclusion>
+  </exclusions>
+  Typically you will exclude everything and then add an explicit dependency, picking a suitable
+  artifact version (in most cases maximum of the versions encountered, or the latest version [with the same major.] available.)
+
+- Common dependency and plugin lists, e.g. BOMs ("Bills of Materials"). Everything from BOM
+is just included in your POM when you add a <dependency> on it (with "import" <scope>). Don't
+forget to specify <packaging>pom</packaging> for such an artifact.
+
+----
+BUILD
+
+- Maven is a generic tool and delegates most of the "real work" to plugins 
+  - (PLUGINS ARE ALSO ARTIFACTS, AND CAN BE INDEPENDENTLY UPDATED WITHOUT RELEASING A NEW VERSION OF Maven, A BIG UPSIDE FROM Ant).
+
+- Project build has several lifecycle "phases". For a typical Java project, these will be:
+      [validate ->] ... ->   # validate project, e.g. its dependencies
+      [{generate,process}-{sources,resources} ->] # generate source code and resources
+      compile ->  # compile source code
+      [{generate,process}-test-{sources,resources} ->] # generate test code and resources
+      test-compile -> # compile test code
+      test ->         # run tests
+      ... ->
+      package ->      # create the artifact
+      ... ->
+      [integration-test ->] # run integration tests
+      ... ->
+      [verify ->]   # verify the artifact
+      [install ->]  # add artifact to local repository
+      [deploy]      # deploy artifact to remote repository
+  (https://maven.apache.org/ref/3.6.3/maven-core/lifecycles.html)
+
+- Plugins execute 1+ "goals" (=build actions). 
+  Many plugins bind goal executions to specific lifecycle "phases" which best fit the action performed.
+
+- User typically just specifies some generic build "goals":
+  E.g., "clean install": remove all generated files, then build, verify and store the projects' artifact in the repository
+- You can also execute a plugin's goal directly, e.g. dependency:tree ("dependency:" specifies a plugin, and "tree" is its goals' name).
+
+----
+BUILD - PLUGIN CONFIGURATION
+
+- Simple plugin config, no custom goal executions. This is default maven test plugin, its execution is bound to "test-compile" phase:
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>${maven-surefire-plugin.version}</version>
+              <configuration>
+                  <includes>
+                      <include>${test-classes}</include>
+                  </includes>
+                  <forkCount>2C</forkCount> <!-- 2 threads per CPU core -->
+              </configuration>
+           </plugin>
+      </plugins>
+  </build>
+
+  Surefire behavior can be customized via properties:
+
+  -DskipTests - skip tests but compile them. RECOMMENDED
+  -Dmaven.test.skip - skip tests altogether, tests are not compiled
+
+- Same for executing main class:
+  <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>1.2.1</version>
+      <configuration>
+          <mainClass>ru.hse.java.HelloWorld</mainClass>
+      </configuration>
+  </plugin>
+
+- Custom phase-plugin goal binding:
+  <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-enforcer-plugin</artifactId>
+      <version>${maven-enforcer-plugin.version}</version>
+      <executions> <!-- Custom phase-plugin goal binding -->
+          <execution>
+              <id>enforce</id> <!-- ID to merge same executions when project inheritance is used (see later) -->
+              <phase>validate</phase>
+              <goals>
+                  <goal>enforce</goal>
+              </goals>
+              <configuration>
+                  <!-- Custom configuration for this execution. Lots of XML ... -->
+              </configuration>
+          </execution>
+      </execution>
+  </plugin>
+
+
+----
+TYPICAL PROJECT - SIMPLE
+- Convention - Typical Maven project directory structure:
+
+  pom.xml - "POM" (Project Object Model) specification as XML file
+  src/main/java/ - java source
+         Not limited to java:
+         src/main/{groovy,kotlin,proto,...} for Groovy, Kotlin, Protobuf, ... sources
+  src/main/resources/ - JAR resources, e.g. message bundles (i18n), images, ...
+  src/test/{java,resource}/ - same for test code
+  target/ - built classfiles etc., including the artifact
+    classes/ - built classfiles
+    generated-source/ - generated source code, e.g. protobuf classes
+    generated-classes/ - classfiles built from generated code, e.g. protobuf classfiles
+
+  To build the project and install the artifact to local repository, run
+    mvn install
+("clean" goal is almost NEVER needed in simple projects)
+
+----
+
+PROJECT INHERITANCE
+
+- Projects can inherit configuration from other projects ("parent POMs"). 
+
+  This allows to specify common build patterns for multiple projects in your organization. 
+
+  Most commonly used to:
+  - Specify Artifact Repository configuration (repositories)
+  - Unify dependency versions (dependencyManagement)
+  - Unify plugin versions&configuration (pluginManagement)
+  - Define properties (=project attributes) used throughout all your projects
+     ${property}
+
+  <parent>
+      <groupId>...</groupId>
+      <artifactId>...</artifactId>
+      <version>...</version>
+      [<relativePath>../pom.xml</relativePath>]
+  </parent>
+
+  @see https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-inheritance
+
+----
+PROJECT AGGREGATION (MULTI-MODULE PROJECTS)
+
+Root project explicitly lists subprojects, which CAN depend on each other
+(https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-aggregation):
+
+  pom.xml - Root POM
+  subproject1/
+    pom.xml - Sub-Project 1 POM
+    src/{main,test}/{java,resources}/
+      ...
+  subproject2/
+    pom.xml - Sub-Project 2 POM
+    src/{main,test}/{java,resources}/
+      ...
+  ...
+
+pom.xml:
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.hse.java</groupId>
+    <artifactId>root-project</artifactId>
+    <version>1.2.3</version>
+    <packaging>pom</packaging>  <!-- Because default packaging is "JAR" -->
+    <modules>
+        <module>subproject1</module>
+        <module>subproject2</module>
+    </modules>
+</project>
+
+subproject1/pom.xml:
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>project1</artifactId>
+    <packaging>jar</packaging>
+</project>
+
+BUILDING MULTI-MODULE PROJECTS
+
+  Multi-module support is also called "Reactor" for historical reasons 
+  (it was originally introduced by maven-*reactor*-plugin).
+
+  Build both the root project and all of its subprojects (topologically sorting dependencies):
+    mvn [clean] install
+
+  Rebuild subproject1 and everything IT depends on:
+    mvn -am -pl subproject1/ [clean] install
+    You need to rebuild your subproject and everything it uses using the latest sources,
+    e.g. after fetching updated source from VCS
+
+  Rebuild `common` and everything that depends on IT (more RARELY needed):
+    mvn -amd -pl common/ [clean] install
+    You have rebuild a common dependency, e.g. an utility library
+
+  NEW: you can use "verify" goal (it goes right before install) if you don't need to save artifacts to local repository
+  @see http://andresalmiray.com/maven-verify-or-clean-install/
+
+  - Using `mvn clean install` is a last resort, as it is UNBEARABLY SLOW (cue meme pic here): everything previosly build is discarded and re-built from source. Unless you have a seriously messy code base, `mvn install` is sufficient AND ALSO MUCH FASTER.
+
+----
+
+*** PROJECT AGGREGATION + INHERITANCE ("Enterprise" Maven)
+
+  You can combine project aggregation and inheritance: both have a Parent POM AND build it as a module
+of a multi-module project. (You can even have a multi-module project POM double as a Parent POM, but
+this looks seriously weird.)
+  
+  Rules (https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-inheritance-vs-project-aggregation):
+  * Specify in every child POM who their parent POM is
+  * Change the parent POMs packaging to the value "pom"
+  * Specify in the parent POM the directories of its modules (children POMs)
+
+  pom.xml - Root POM
+  common/
+    pom.xml - Parent POM (common configuration)
+  subproject1/
+    pom.xml - Sub-Project 1 POM
+    src/{main,test}/{java,resources}/
+    target/
+      ...
+  ...
+
+  Root POM:
+  <!-- ... -->
+  <packaging>pom</packaging>
+  <modules>
+      <module>common</module>
+      <module>subproject1</module>
+      <!-- ... -->
+  </modules>
+
+  Parent POM:
+  <!-- ... -->
+  <groupId>ru.hse.java</groupId>
+  <artifactId>common</artifactId>
+  <version>0.0.1</version>
+  <packaging>pom</packaging>
+
+  subproject1 POM:
+  <!-- ... -->
+  <parent>
+      <groupId>ru.hse.java</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1</version>
+      <relativePath>../common</relativePath> <!-- because pom.xml in .. is the root project's POM, not the parent POM -->
+  </parent>
+
+  SERIOUSLY enterprisey projects typically have MULTIPLE multi-module projects 
+  and MIGHT ALSO have MULTIPLE Parent POMs.
+  In a leaf subproject you thus can see something like this:
+  <parent>
+      <groupId>yandex.cloud.common</groupId>
+      <artifactId>java</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <relativePath>../../common/java</relativePath>
+  </parent>
+
+----
+
+ADDITIONAL RESOURCES
+  Debug mode:
+    mvn -Xe <...>
+
+  Recommended Reading:
+  https://books.sonatype.com/mvnex-book/reference/index.html
+
+  Stackoverflow, of course:
+  https://stackoverflow.com/questions/tagged/maven
