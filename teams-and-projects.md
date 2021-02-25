@@ -23,6 +23,7 @@
   - Можно взять свою тему (по согласованию с преподавателем)
   - **Сменить тему** можно до 03.03 включительно, если в команде большинство участников «за».
 - **Проектная документация (Product Vision, User Stories):** soft deadline 26.02, hard deadline 05.03.
+  - FAQ, как её писать: https://github.com/nvamelichev/hse-java-spring-2021/blob/main/requirements-faq.md
   - Product Vision:
     - https://leadstartup.ru/db/product-vision (Agile)
     - https://intuit.ru/studies/courses/2188/174/lecture/4724?page=2 (более формальный подход из методологий RUP и MSF)
