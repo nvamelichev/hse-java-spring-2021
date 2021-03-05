@@ -10,7 +10,7 @@
 | Алексей Илюхов, <br> Михаил Анопренко, <br> Алексей Соколовский | 4. RPN-калькулятор | Модель предметной области до 12.03 | [rpn-calculator](https://github.com/livace/rpn-calculator) |
 | Петр Молодык, <br> Данила Седашов, <br> Екатерина Булатова, <br> Наталья Денисенко | **\*** Мод для Minecraft | Модель предметной области до 12.03 | [Minecraft Mod](https://github.com/pmolodyk/MinecraftFabricMod) |
 | Александр Латышев, <br> Искандер Ямбулатов, <br> Максим Минченок | 1. Консольный органайзер | Улучшения проектной документации до 05.03 | [console-organizer](https://github.com/hypersousage/console-organizer) |
-| Елена Семерова, <br> Константин Еленик, <br> Игорь Глушков | 11. Трекер времени по системе Pomodoro | Улучшения проектной документации до 05.03 | [pomodoros](https://github.com/igoroogle/pomodoros) |
+| Елена Семерова, <br> Константин Еленик, <br> Игорь Глушков | 11. Трекер времени по системе Pomodoro | Модель предметной области до 12.03 | [pomodoros](https://github.com/igoroogle/pomodoros) |
 | Константин Матвеев, <br> Андрей Ветров, <br> Тимур Ваньков, <br> Артём Самарин | 5. Статистика по исходному коду на C-like языках программирования | Модель предметной области до 12.03 | [code-statistics](https://github.com/vetand/code-statistics) |
 | Борис Шошин, <br> Илья Зюляев | 10. Карточки-запоминалки (Flash Cards) | Улучшения проектной документации до 05.03 | [flash-cards](https://github.com/ilya2204/flash-cards) |
 
