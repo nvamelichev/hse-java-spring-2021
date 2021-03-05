@@ -1,0 +1,33 @@
+@startuml
+
+actor Client as C
+database DB
+participant "Work Queue" as Q
+
+collections "Workers" as T
+
+C->DB: save task
+activate DB
+DB-->C: tx commit
+deactivate DB
+
+Q->DB: poll
+DB-->Q: new task found
+Q->T: start thread
+
+T->DB: mark task started
+activate DB
+DB-->T: tx commit
+deactivate DB
+
+T->T: run task
+
+T->DB: write task result
+activate DB
+T->DB: complete task
+DB-->T: tx commit
+deactivate DB
+
+skinparam Shadowing false
+
+@enduml

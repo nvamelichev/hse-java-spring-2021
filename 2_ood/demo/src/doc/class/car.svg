@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1015.2px" preserveAspectRatio="none" style="width:1452px;height:1015px;" version="1.1" viewBox="0 0 1452 1015" width="1452px" zoomAndPan="magnify"><defs/><g><!--MD5=[7c5c88a606935469d5f89b0b5794816c]
+class Named--><rect codeLine="2" fill="#FEFECE" height="145.9313" id="Named" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="256.8" x="579.6" y="16.8"/><ellipse cx="650.16" cy="55.2" fill="#B4A7E5" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M641.5725,45.075 L641.5725,39.6 L659.31,39.6 L659.31,45.075 L653.385,45.075 L653.385,65.3625 L659.31,65.3625 L659.31,70.8 L641.5725,70.8 L641.5725,65.3625 L647.4975,65.3625 L647.4975,45.075 L641.5725,45.075 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" font-style="italic" lengthAdjust="spacing" textLength="103.2" x="691.44" y="65.1703">Named</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="582" x2="834" y1="93.6" y2="93.6"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="582" x2="834" y1="112.8" y2="112.8"/><ellipse cx="606" cy="139.2" fill="#84BE84" rx="7.2" ry="7.2" style="stroke:#038048;stroke-width:2.4;"/><text fill="#000000" font-family="sans-serif" font-size="26.4" lengthAdjust="spacing" textLength="194.4" x="627.6" y="146.9051">name(): String</text><!--MD5=[3f0ef310aaa84a542276992c5216544d]
+class Car--><rect codeLine="5" fill="#FEFECE" height="115.2" id="Car" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="124.8" x="871.2" y="309.6"/><ellipse cx="907.2" cy="348" fill="#ADD1B2" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M913.125,362.1 Q911.7375,362.85 910.2,363.225 Q908.6625,363.6 906.975,363.6 Q900.975,363.6 897.7875,359.5875 Q894.6375,355.575 894.6375,348 Q894.6375,340.425 897.7875,336.4125 Q900.975,332.4 906.975,332.4 Q908.6625,332.4 910.2,332.775 Q911.775,333.15 913.125,333.9 L913.125,340.6125 Q911.625,339.2625 910.2,338.625 Q908.775,337.95 907.275,337.95 Q904.05,337.95 902.4,340.5 Q900.75,343.05 900.75,348 Q900.75,352.9875 902.4,355.5375 Q904.05,358.05 907.275,358.05 Q908.775,358.05 910.2,357.4125 Q911.625,356.775 913.125,355.3875 L913.125,362.1 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" lengthAdjust="spacing" textLength="48" x="940.8" y="357.9703">Car</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="873.6" x2="993.6" y1="386.4" y2="386.4"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="873.6" x2="993.6" y1="405.6" y2="405.6"/><!--MD5=[c86ce95fe6226f2d2796c0513d8e83fe]
+class Engine--><rect codeLine="6" fill="#FEFECE" height="115.2" id="Engine" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="177.6" x="931.2" y="571.2"/><ellipse cx="967.2" cy="609.6" fill="#B4A7E5" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M958.6125,599.475 L958.6125,594 L976.35,594 L976.35,599.475 L970.425,599.475 L970.425,619.7625 L976.35,619.7625 L976.35,625.2 L958.6125,625.2 L958.6125,619.7625 L964.5375,619.7625 L964.5375,599.475 L958.6125,599.475 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" font-style="italic" lengthAdjust="spacing" textLength="100.8" x="1000.8" y="619.5703">Engine</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="933.6" x2="1106.4" y1="648" y2="648"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="933.6" x2="1106.4" y1="667.2" y2="667.2"/><!--MD5=[09ce52be0ee7de43c61b6e2d59bf108b]
+class Person--><rect codeLine="7" fill="#FEFECE" height="115.2" id="Person" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="172.8" x="504" y="571.2"/><ellipse cx="540" cy="609.6" fill="#ADD1B2" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M545.925,623.7 Q544.5375,624.45 543,624.825 Q541.4625,625.2 539.775,625.2 Q533.775,625.2 530.5875,621.1875 Q527.4375,617.175 527.4375,609.6 Q527.4375,602.025 530.5875,598.0125 Q533.775,594 539.775,594 Q541.4625,594 543,594.375 Q544.575,594.75 545.925,595.5 L545.925,602.2125 Q544.425,600.8625 543,600.225 Q541.575,599.55 540.075,599.55 Q536.85,599.55 535.2,602.1 Q533.55,604.65 533.55,609.6 Q533.55,614.5875 535.2,617.1375 Q536.85,619.65 540.075,619.65 Q541.575,619.65 543,619.0125 Q544.425,618.375 545.925,616.9875 L545.925,623.7 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" lengthAdjust="spacing" textLength="96" x="573.6" y="619.5703">Person</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="506.4" x2="674.4" y1="648" y2="648"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="506.4" x2="674.4" y1="667.2" y2="667.2"/><!--MD5=[eee9d396a8aca12c6c152931e8dc1ab6]
+class Driver--><rect codeLine="8" fill="#FEFECE" height="115.2" id="Driver" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="163.2" x="242.4" y="832.8"/><ellipse cx="278.4" cy="871.2" fill="#ADD1B2" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M284.325,885.3 Q282.9375,886.05 281.4,886.425 Q279.8625,886.8 278.175,886.8 Q272.175,886.8 268.9875,882.7875 Q265.8375,878.775 265.8375,871.2 Q265.8375,863.625 268.9875,859.6125 Q272.175,855.6 278.175,855.6 Q279.8625,855.6 281.4,855.975 Q282.975,856.35 284.325,857.1 L284.325,863.8125 Q282.825,862.4625 281.4,861.825 Q279.975,861.15 278.475,861.15 Q275.25,861.15 273.6,863.7 Q271.95,866.25 271.95,871.2 Q271.95,876.1875 273.6,878.7375 Q275.25,881.25 278.475,881.25 Q279.975,881.25 281.4,880.6125 Q282.825,879.975 284.325,878.5875 L284.325,885.3 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" lengthAdjust="spacing" textLength="86.4" x="312" y="881.1703">Driver</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="244.8" x2="403.2" y1="909.6" y2="909.6"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="244.8" x2="403.2" y1="928.8" y2="928.8"/><!--MD5=[044d80e6112339a70fe50413576e9bf7]
+class Passenger--><rect codeLine="9" fill="#FEFECE" height="115.2" id="Passenger" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="223.2" x="1213.2" y="832.8"/><ellipse cx="1249.2" cy="871.2" fill="#ADD1B2" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M1255.125,885.3 Q1253.7375,886.05 1252.2,886.425 Q1250.6625,886.8 1248.975,886.8 Q1242.975,886.8 1239.7875,882.7875 Q1236.6375,878.775 1236.6375,871.2 Q1236.6375,863.625 1239.7875,859.6125 Q1242.975,855.6 1248.975,855.6 Q1250.6625,855.6 1252.2,855.975 Q1253.775,856.35 1255.125,857.1 L1255.125,863.8125 Q1253.625,862.4625 1252.2,861.825 Q1250.775,861.15 1249.275,861.15 Q1246.05,861.15 1244.4,863.7 Q1242.75,866.25 1242.75,871.2 Q1242.75,876.1875 1244.4,878.7375 Q1246.05,881.25 1249.275,881.25 Q1250.775,881.25 1252.2,880.6125 Q1253.625,879.975 1255.125,878.5875 L1255.125,885.3 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" lengthAdjust="spacing" textLength="146.4" x="1282.8" y="881.1703">Passenger</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="1215.6" x2="1434" y1="909.6" y2="909.6"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="1215.6" x2="1434" y1="928.8" y2="928.8"/><!--MD5=[520f929dca0db0e3fa16b523dd39e2a8]
+class DriversLicense--><rect codeLine="10" fill="#FEFECE" height="115.2" id="DriversLicense" style="stroke:#A80036;stroke-width:3.5999999999999996;" width="285.6" x="843.6" y="832.8"/><ellipse cx="879.6" cy="871.2" fill="#ADD1B2" rx="26.4" ry="26.4" style="stroke:#A80036;stroke-width:2.4;"/><path d="M885.525,885.3 Q884.1375,886.05 882.6,886.425 Q881.0625,886.8 879.375,886.8 Q873.375,886.8 870.1875,882.7875 Q867.0375,878.775 867.0375,871.2 Q867.0375,863.625 870.1875,859.6125 Q873.375,855.6 879.375,855.6 Q881.0625,855.6 882.6,855.975 Q884.175,856.35 885.525,857.1 L885.525,863.8125 Q884.025,862.4625 882.6,861.825 Q881.175,861.15 879.675,861.15 Q876.45,861.15 874.8,863.7 Q873.15,866.25 873.15,871.2 Q873.15,876.1875 874.8,878.7375 Q876.45,881.25 879.675,881.25 Q881.175,881.25 882.6,880.6125 Q884.025,879.975 885.525,878.5875 L885.525,885.3 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="28.8" lengthAdjust="spacing" textLength="208.8" x="913.2" y="881.1703">DriversLicense</text><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="846" x2="1126.8" y1="909.6" y2="909.6"/><line style="stroke:#A80036;stroke-width:3.5999999999999996;" x1="846" x2="1126.8" y1="928.8" y2="928.8"/><!--MD5=[95dbd12de74729e6f73b05b99a8d2ee9]
+reverse link Named to Person--><path codeLine="14" d="M628.2,211.788 C628.2,211.788 628.2,570.7392 628.2,570.7392 " fill="none" id="Named-backto-Person" style="stroke:#A80036;stroke-width:2.4;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="611.4002,211.7882,628.2,163.788,645.0002,211.788,611.4002,211.7882" style="stroke:#A80036;stroke-width:2.4;"/><!--MD5=[bcfc2bb49716c9cccfd8e4d20b254e29]
+reverse link Named to Car--><path codeLine="15" d="M884.616,91.2 C884.616,91.2 933.6,91.2 933.6,91.2 C933.6,91.2 933.6,228.4092 933.6,309.3413 " fill="none" id="Named-backto-Car" style="stroke:#A80036;stroke-width:2.4;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="884.616,107.9998,836.616,91.2,884.616,74.3998,884.616,107.9998" style="stroke:#A80036;stroke-width:2.4;"/><!--MD5=[24ae49f0737a4afb7a40e2461c79b3b9]
+reverse link Person to Driver--><path codeLine="17" d="M455.8224,628.8 C455.8224,628.8 364.8,628.8 364.8,628.8 C364.8,628.8 364.8,755.273 364.8,832.3426 " fill="none" id="Person-backto-Driver" style="stroke:#A80036;stroke-width:2.4;"/><polygon fill="none" points="455.8224,611.9998,503.8224,628.8,455.8222,645.5998,455.8224,611.9998" style="stroke:#A80036;stroke-width:2.4;"/><!--MD5=[b8a9a3ce6ee78c4ecc9f1cba37983e07]
+reverse link Person to Passenger--><path codeLine="18" d="M590.4,731.7794 C590.4,731.7794 590.4,736.8 590.4,736.8 C590.4,736.8 1287.6,736.8 1287.6,736.8 C1287.6,736.8 1287.6,788.8337 1287.6,832.3303 " fill="none" id="Person-backto-Passenger" style="stroke:#A80036;stroke-width:2.4;"/><polygon fill="none" points="573.6002,734.5942,590.4,686.5942,607.2002,734.5939,573.6002,734.5942" style="stroke:#A80036;stroke-width:2.4;"/><!--MD5=[d8f64c110f2e3645813c830240789e35]
+link Driver to DriversLicense--><path codeLine="21" d="M405.8875,890.4 C405.8875,890.4 831.1358,890.4 831.1358,890.4 " fill="none" id="Driver-to-DriversLicense" style="stroke:#A80036;stroke-width:2.4;"/><polygon fill="#A80036" points="843.1358,890.4,821.5358,880.8,831.1358,890.4,821.5358,900,843.1358,890.4" style="stroke:#A80036;stroke-width:2.4;"/><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="122.4" x="493.7117" y="880.9605">«holds»</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="19.2" x="424.7568" y="879.6809">1</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="57.6" x="766.7163" y="881.4092">0..1</text><!--MD5=[766a5526e1cb7479bbfd6642d5029db5]
+link Driver to Driver--><path codeLine="22" d="M283.2,832.6565 C283.2,808.0032 283.2,784.8 283.2,784.8 C283.2,784.8 199.2,784.8 199.2,784.8 C199.2,784.8 199.2,991.2 199.2,991.2 C199.2,991.2 324,991.2 324,991.2 C324,991.2 324,971.2111 324,949.0358 " fill="none" id="Driver-Driver" style="stroke:#A80036;stroke-width:2.4;"/><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="156" x="28.8" y="884.1144">«talks to»</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="16.8" x="253.7925" y="806.2486">*</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="16.8" x="305.2575" y="995.7553">*</text><!--MD5=[68cc089a05bca8a2306644317e8b6b93]
+reverse link Car to Engine--><path codeLine="26" d="M963.6,456.4574 C963.6,456.4574 963.6,570.9048 963.6,570.9048 " fill="none" id="Car-backto-Engine" style="stroke:#A80036;stroke-width:2.4;"/><polygon fill="#A80036" points="963.6,425.2574,954,439.6574,963.6,454.0574,973.2,439.6574,963.6,425.2574" style="stroke:#A80036;stroke-width:2.4;"/><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="19.2" x="949.3725" y="472.7958">1</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="19.2" x="927.4875" y="544.458">1</text><!--MD5=[1e12698d880186307e08d956c108e8fb]
+reverse link Car to Driver--><path codeLine="28" d="M839.4581,367.2 C839.4581,367.2 324,367.2 324,367.2 C324,367.2 324,696.1879 324,832.4095 " fill="none" id="Car-backto-Driver" style="stroke:#A80036;stroke-width:2.4;"/><polygon fill="#FFFFFF" points="870.6581,367.2,856.2581,357.6,841.8581,367.2,856.2581,376.8,870.6581,367.2" style="stroke:#A80036;stroke-width:2.4;"/><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="19.2" x="832.8692" y="355.5889">1</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="19.2" x="302.34" y="805.9383">1</text><!--MD5=[3058974212335d1e475abe21bd065e25]
+reverse link Car to Passenger--><path codeLine="29" d="M1028.0119,367.2 C1028.0119,367.2 1362,367.2 1362,367.2 C1362,367.2 1362,696.1879 1362,832.4095 " fill="none" id="Car-backto-Passenger" style="stroke:#A80036;stroke-width:2.4;"/><polygon fill="#FFFFFF" points="996.8119,367.2,1011.2119,376.8,1025.6119,367.2,1011.2119,357.6,996.8119,367.2" style="stroke:#A80036;stroke-width:2.4;"/><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="19.2" x="1015.47" y="355.5889">1</text><text fill="#000000" font-family="sans-serif" font-size="31.2" lengthAdjust="spacing" textLength="55.2" x="1309.26" y="805.9383">0..*</text><!--MD5=[36cc255b01a77a1cfc9e665589a7b718]
+@startuml
+
+interface Named {
+  + name(): String
+}
+class Car
+interface Engine
+class Person
+class Driver
+class Passenger
+class DriversLicense
+
+' "Is-a":
+' a) Interface implementation
+Named <|.. Person
+Named <|.. Car
+' b) Inheritance
+Person <|- - Driver
+Person <|- - Passenger
+
+' Association ("uses"):
+Driver "1" - -right-> "0..1" DriversLicense : << holds >>
+Driver "*" - - "*" Driver : << talks to >>
+
+' "Has-a":
+' a) Composition: ownership
+Car "1" *- - "1" Engine
+' b) Aggregation: partnership
+Car "1" o- - - "1" Driver
+Car "1" o- - - "0..*" Passenger
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml
+
+@startuml
+
+interface Named {
+  + name(): String
+}
+class Car
+interface Engine
+class Person
+class Driver
+class Passenger
+class DriversLicense
+
+Named <|.. Person
+Named <|.. Car
+Person <|- - Driver
+Person <|- - Passenger
+
+Driver "1" - -right-> "0..1" DriversLicense : << holds >>
+Driver "*" - - "*" Driver : << talks to >>
+
+Car "1" *- - "1" Engine
+Car "1" o- - - "1" Driver
+Car "1" o- - - "0..*" Passenger
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml
+
+PlantUML version 1.2021.01(Tue Feb 02 10:55:08 MSK 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

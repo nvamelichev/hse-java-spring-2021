@@ -1,0 +1,35 @@
+@startuml
+
+[*] --> STARTING : Create
+
+STARTING -> STARTED : Initial deploy complete
+STARTING -> STOPPING : Stop
+STARTING -> DELETING : Delete
+
+state STARTED {
+    ACTUAL -> OUTDATED <<2>> : Update spec
+    OUTDATED -> ACTUAL <<1>> : Deploy complete
+}
+
+STARTED --> STOPPING : Stop
+STARTED --> DELETING <<3>> : Delete
+
+STOPPING --> STOPPING : Update spec
+STOPPING --> STOPPED : Stop complete
+STOPPING --> DELETING : Delete
+
+STOPPED --> STOPPED : Update spec
+STOPPED --> STARTING : Start
+STOPPED --> DELETING : Delete
+
+DELETING -> [*]
+
+skinparam Shadowing false
+skinparam state {
+  BackgroundColor<<1>> 9f9
+  BackgroundColor<<2>> ff9
+  BackgroundColor<<3>> f99
+}
+
+@enduml
+

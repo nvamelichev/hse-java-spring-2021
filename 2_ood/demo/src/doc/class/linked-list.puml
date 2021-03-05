@@ -1,0 +1,22 @@
+@startuml
+
+class RList<T> {
+- head: T
+- tail : RList<T>
+==
++ {static} cons(T): RList<T>
++ {static} cons(T, RList<T>): RList<T>
+--
++ isEmpty()
++ iterator(): Iterator<T>
+--
++ prepend(T): RList<T>
++ concat(RList<T>): RList<T>
+}
+
+RList "1" -right--> "0..1" RList : tail
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml

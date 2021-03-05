@@ -1,0 +1,35 @@
+@startuml
+
+interface Named {
+  + name(): String
+}
+class Car
+interface Engine
+class Person
+class Driver
+class Passenger
+class DriversLicense
+
+' "Is-a":
+' a) Interface implementation
+Named <|.. Person
+Named <|.. Car
+' b) Inheritance
+Person <|-- Driver
+Person <|-- Passenger
+
+' Association ("uses"):
+Driver "1" --right-> "0..1" DriversLicense : << holds >>
+Driver "*" -- "*" Driver : << talks to >>
+
+' "Has-a":
+' a) Composition: ownership
+Car "1" *-- "1" Engine
+' b) Aggregation: partnership
+Car "1" o--- "1" Driver
+Car "1" o--- "0..*" Passenger
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml
