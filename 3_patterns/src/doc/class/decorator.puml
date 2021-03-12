@@ -1,0 +1,16 @@
+@startuml
+
+abstract class InputStream {
+  + read(buf: byte[]): int
+}
+
+class FileInputStream extends InputStream
+class BufferedInputStream extends InputStream {
+  - delegate: InputStream
+}
+BufferedInputStream *-- InputStream
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml

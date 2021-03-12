@@ -1,0 +1,23 @@
+@startuml
+
+interface FlyStrategy {
+  + fly()
+}
+
+class OrdinaryFlyStrategy implements FlyStrategy
+class NoFlyStrategy implements FlyStrategy {
+  + INSTANCE : NoFlyStrategy
+}
+note bottom of NoFlyStrategy : Null Object
+
+class Duck {
+  + flyStrategy : FlyStrategy
+  + doFly()
+}
+
+Duck "1" o-- "1" FlyStrategy
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml

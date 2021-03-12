@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="273px" preserveAspectRatio="none" style="width:473px;height:273px;" version="1.1" viewBox="0 0 473 273" width="473.2px" zoomAndPan="magnify"><defs/><g><!--MD5=[8d231b6496bd9f747b54b1fd17522193]
+class InputStream--><rect codeLine="2" fill="#FEFECE" height="85.1266" id="InputStream" style="stroke:#A80036;stroke-width:2.0999999999999996;" width="197.4" x="253.4" y="9.8"/><ellipse cx="294.56" cy="32.2" fill="#A9DCDF" rx="15.4" ry="15.4" style="stroke:#A80036;stroke-width:1.4;"/><path d="M294.7131,25.6156 L293.0944,33.075 L296.3538,33.075 L294.7131,25.6156 Z M292.635,22.05 L296.8131,22.05 L301.5163,40.25 L298.0819,40.25 L297.01,36.05 L292.4163,36.05 L291.3663,40.25 L287.9538,40.25 L292.635,22.05 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="16.8" font-style="italic" lengthAdjust="spacing" textLength="107.8" x="318.64" y="38.016">InputStream</text><line style="stroke:#A80036;stroke-width:2.0999999999999996;" x1="254.8" x2="449.4" y1="54.6" y2="54.6"/><line style="stroke:#A80036;stroke-width:2.0999999999999996;" x1="254.8" x2="449.4" y1="65.8" y2="65.8"/><ellipse cx="268.8" cy="81.2" fill="#84BE84" rx="4.2" ry="4.2" style="stroke:#038048;stroke-width:1.4;"/><text fill="#000000" font-family="sans-serif" font-size="15.4" lengthAdjust="spacing" textLength="161" x="281.4" y="85.6946">read(buf: byte[]): int</text><!--MD5=[0c51305de9094af5bf95fae0142ac999]
+class FileInputStream--><rect codeLine="6" fill="#FEFECE" height="67.2" id="FileInputStream" style="stroke:#A80036;stroke-width:2.0999999999999996;" width="180.6" x="9.8" y="188.3"/><ellipse cx="30.8" cy="210.7" fill="#ADD1B2" rx="15.4" ry="15.4" style="stroke:#A80036;stroke-width:1.4;"/><path d="M34.2562,218.925 Q33.4469,219.3625 32.55,219.5812 Q31.6531,219.8 30.6688,219.8 Q27.1688,219.8 25.3094,217.4594 Q23.4719,215.1187 23.4719,210.7 Q23.4719,206.2813 25.3094,203.9406 Q27.1688,201.6 30.6688,201.6 Q31.6531,201.6 32.55,201.8188 Q33.4688,202.0375 34.2562,202.475 L34.2562,206.3906 Q33.3813,205.6031 32.55,205.2313 Q31.7187,204.8375 30.8437,204.8375 Q28.9625,204.8375 28,206.325 Q27.0375,207.8125 27.0375,210.7 Q27.0375,213.6094 28,215.0969 Q28.9625,216.5625 30.8437,216.5625 Q31.7187,216.5625 32.55,216.1906 Q33.3813,215.8188 34.2562,215.0094 L34.2562,218.925 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="135.8" x="50.4" y="216.516">FileInputStream</text><line style="stroke:#A80036;stroke-width:2.0999999999999996;" x1="11.2" x2="189" y1="233.1" y2="233.1"/><line style="stroke:#A80036;stroke-width:2.0999999999999996;" x1="11.2" x2="189" y1="244.3" y2="244.3"/><!--MD5=[8e96942d5f929c74dce9e509de1c2d08]
+class BufferedInputStream--><rect codeLine="7" fill="#FEFECE" height="85.1266" id="BufferedInputStream" style="stroke:#A80036;stroke-width:2.0999999999999996;" width="224" x="240.1" y="179.2"/><ellipse cx="261.1" cy="201.6" fill="#ADD1B2" rx="15.4" ry="15.4" style="stroke:#A80036;stroke-width:1.4;"/><path d="M264.5563,209.825 Q263.7469,210.2625 262.85,210.4813 Q261.9531,210.7 260.9688,210.7 Q257.4688,210.7 255.6094,208.3594 Q253.7719,206.0187 253.7719,201.6 Q253.7719,197.1812 255.6094,194.8406 Q257.4688,192.5 260.9688,192.5 Q261.9531,192.5 262.85,192.7188 Q263.7688,192.9375 264.5563,193.375 L264.5563,197.2906 Q263.6813,196.5031 262.85,196.1313 Q262.0188,195.7375 261.1438,195.7375 Q259.2625,195.7375 258.3,197.225 Q257.3375,198.7125 257.3375,201.6 Q257.3375,204.5094 258.3,205.9969 Q259.2625,207.4625 261.1438,207.4625 Q262.0188,207.4625 262.85,207.0906 Q263.6813,206.7188 264.5563,205.9094 L264.5563,209.825 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="179.2" x="280.7" y="207.416">BufferedInputStream</text><line style="stroke:#A80036;stroke-width:2.0999999999999996;" x1="241.5" x2="462.7" y1="224" y2="224"/><rect fill="none" height="8.4" style="stroke:#C82930;stroke-width:1.4;" width="8.4" x="251.3" y="235.2"/><text fill="#000000" font-family="sans-serif" font-size="15.4" lengthAdjust="spacing" textLength="176.4" x="268.1" y="243.8946">delegate: InputStream</text><line style="stroke:#A80036;stroke-width:2.0999999999999996;" x1="241.5" x2="462.7" y1="253.1266" y2="253.1266"/><!--MD5=[99cb5a548e53fe5a69e28cf974f5a012]
+reverse link InputStream to FileInputStream--><path d="M225.2263,53.2 C225.2263,53.2 100.1,53.2 100.1,53.2 C100.1,53.2 100.1,138.9356 100.1,188.1664 " fill="none" id="InputStream-backto-FileInputStream" style="stroke:#A80036;stroke-width:1.4;"/><polygon fill="none" points="225.2263,43.3999,253.2263,53.2,225.2261,62.9999,225.2263,43.3999" style="stroke:#A80036;stroke-width:1.4;"/><!--MD5=[0169525881a7b35c621f8326ff3bcc52]
+reverse link InputStream to BufferedInputStream--><path d="M319.2,123.2468 C319.2,123.2468 319.2,179.167 319.2,179.167 " fill="none" id="InputStream-backto-BufferedInputStream" style="stroke:#A80036;stroke-width:1.4;"/><polygon fill="none" points="309.4001,123.2468,319.2,95.2468,329.0001,123.2468,309.4001,123.2468" style="stroke:#A80036;stroke-width:1.4;"/><!--MD5=[e5b99405aa3c16fb62086e2db639b044]
+reverse link BufferedInputStream to InputStream--><path codeLine="10" d="M385,160.9532 C385,160.9532 385,95.233 385,95.233 " fill="none" id="BufferedInputStream-backto-InputStream" style="stroke:#A80036;stroke-width:1.4;"/><polygon fill="#A80036" points="385,179.1532,390.6,170.7532,385,162.3532,379.4,170.7532,385,179.1532" style="stroke:#A80036;stroke-width:1.4;"/><!--MD5=[81679124456b74fb411b9b6fe6b44f86]
+@startuml
+
+abstract class InputStream {
+  + read(buf: byte[]): int
+}
+
+class FileInputStream extends InputStream
+class BufferedInputStream extends InputStream {
+  - delegate: InputStream
+}
+BufferedInputStream *- - InputStream
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml
+
+PlantUML version 1.2021.01(Tue Feb 02 10:55:08 MSK 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

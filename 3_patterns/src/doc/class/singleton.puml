@@ -1,0 +1,13 @@
+@startuml
+
+class McLeod {
+    - INSTANCE: McLeod
+
+    - McLeod()
+    + getInstance(): McLeod
+}
+note top of McLeod: Singleton
+
+skinparam Shadowing false
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+
+interface Service {
+  + call(a: int, x: String)
+}
+
+class RemoteServiceStub implements Service {
+  - channel: Channel
+  - method: MethodDescriptor
+  - retryStrategy: RetryStrategy
+
+  + call(a: int, x: String)
+}
+
+class MockService implements Service {
+  + call(a: int, x: String)
+}
+note bottom of MockService: test double
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml

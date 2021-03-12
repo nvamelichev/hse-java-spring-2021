@@ -1,0 +1,22 @@
+@startuml
+
+class EventObject
+
+class Observable {
+  + addListener(o: Listener)
+  + removeListener(o: Listener)
+  + notify(e: EventObject)
+}
+
+class Listener {
+  + onEvent(e: EventObject)
+}
+
+Observable "*" *-> "*" Listener
+Listener -> EventObject
+Observable -> EventObject
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml

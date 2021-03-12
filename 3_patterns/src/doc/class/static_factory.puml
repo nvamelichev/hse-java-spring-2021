@@ -1,0 +1,11 @@
+@startuml
+
+class Duration {
+    {static} ofMinutes(minutes: int): Duration
+    {static} ofSeconds(minutes: int): Duration
+}
+note bottom of Duration : Static Factory
+
+skinparam Shadowing false
+
+@enduml

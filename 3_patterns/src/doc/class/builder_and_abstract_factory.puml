@@ -1,0 +1,39 @@
+@startuml
+
+class DocumentBuilderFactory {
+    newBuilder(): DocumentBuilder
+}
+class XalanDocumentBuilderFactory extends DocumentBuilderFactory {
+    + newBuilder(): XalanDocumentBuilder
+}
+class XercesDocumentBuilderFactory extends DocumentBuilderFactory {
+    + newBuilder(): XercesDocumentBuilder
+}
+note top of DocumentBuilderFactory : Abstract Factory
+DocumentBuilderFactory -down-> DocumentBuilder : <<creates>>
+
+class DocumentBuilder {
+    + addElementNode()
+    + addAttribute()
+    + addTextNode()
+
+    + build(): Document
+}
+class XalanDocumentBuilder extends DocumentBuilder {
+    + build(): XalanDocument
+}
+class XercesDocumentBuilder extends DocumentBuilder {
+    + build(): XercesDocument
+}
+note top of DocumentBuilder : Builder
+DocumentBuilder --> Document : <<creates>>
+
+interface Document
+class XalanDocument
+class XercesDocument
+XalanDocument <|-up- Document
+XercesDocument <|-up- Document
+
+skinparam Shadowing false
+
+@enduml

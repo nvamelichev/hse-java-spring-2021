@@ -1,0 +1,22 @@
+@startuml
+
+interface Iterator<T> {
+  + hasNext(): boolean
+  + next(): T
+}
+
+class ArrayListIterator implements Iterator
+class ArrayIterator implements Iterator
+class MapKeyIterator implements Iterator
+
+interface Spliterator<T> {
+  + tryAdvance(): boolean
+  + forEachRemaining(action: Consumer<T>)
+}
+
+class ArrayListSpliterator implements Spliterator
+
+skinparam linetype ortho
+skinparam Shadowing false
+
+@enduml

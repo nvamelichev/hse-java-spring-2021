@@ -1,0 +1,17 @@
+@startuml
+
+actor Client as C
+participant "BufferedInputStream" as B
+participant "FileInputStream" as F
+
+C -> B: read 1K
+activate B
+B -> F: [buffer empty] read 4K of data
+F -> B: return at most 4K of data
+B -> B: [buffer not empty] read from buffer
+B -> C
+deactivate B
+
+skinparam Shadowing false
+
+@enduml
