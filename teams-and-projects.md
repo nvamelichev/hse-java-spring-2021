@@ -6,10 +6,10 @@
 | Команда | Проект | Ближайший дедлайн | GitHub |
 | ------- | ------ | ----------------- | ------ |
 | Екатерина Стержанова, <br> Юлия Царева, <br> Зуфар Сафиуллин, <br> Георгий Колесников | 8. Симулятор игры "Жизнь" | Второй релиз до **23.04**: https://github.com/yutsareva/game-of-life/issues/4 | [game-of-life](https://github.com/yutsareva/game-of-life) |
-| Сабина Даянова, <br> Дарья Барановская, <br> Юлия Кошелева | 3. Экстрактор текста | Первый релиз до **16.04** (не успели к 09.04, мини-демо в начале след. семинара) | [text-extractor](https://github.com/sabinadayanova/text-extractor) |
+| Сабина Даянова, <br> Дарья Барановская, <br> Юлия Кошелева | 3. Экстрактор текста | Второй релиз до **23.04**: https://github.com/sabinadayanova/text-extractor/issues/4 | [text-extractor](https://github.com/sabinadayanova/text-extractor) |
 | Алексей Илюхов, <br> Михаил Анопренко, <br> Алексей Соколовский | 4. RPN-калькулятор | Второй релиз до **23.04**: https://github.com/livace/rpn-calculator/issues/10 | [rpn-calculator](https://github.com/livace/rpn-calculator) |
 | Петр Молодык, <br> Данила Седашов, <br> Екатерина Булатова, <br> Наталья Денисенко | **\*** Мод для Minecraft | Второй релиз до **23.04**: https://github.com/pmolodyk/MinecraftFabricMod/issues/3 | [Minecraft Mod](https://github.com/pmolodyk/MinecraftFabricMod) |
-| Александр Латышев, <br> Искандер Ямбулатов, <br> Максим Минченок | 1. Консольный органайзер | Первый релиз до **16.04** (не успели к 09.04, мини-демо в начале след. семинара) | [console-organizer](https://github.com/hypersousage/console-organizer) |
+| Александр Латышев, <br> Искандер Ямбулатов, <br> Максим Минченок | 1. Консольный органайзер | Второй релиз до **23.04**: https://github.com/hypersousage/console-organizer/issues/5 | [console-organizer](https://github.com/hypersousage/console-organizer) |
 | Елена Семерова, <br> Константин Еленик, <br> Игорь Глушков | 11. Трекер времени по системе Pomodoro | Второй релиз до **23.04**: https://github.com/igoroogle/pomodoros/issues/3 | [pomodoros](https://github.com/igoroogle/pomodoros) |
 | Константин Матвеев, <br> Андрей Ветров, <br> Тимур Ваньков, <br> Артём Самарин | 5. Статистика по исходному коду на C-like языках программирования | Второй релиз до **23.04**: https://github.com/vetand/code-statistics/issues/15 | [code-statistics](https://github.com/vetand/code-statistics) |
 | Борис Шошин, <br> Илья Зюляев | 10. Карточки-запоминалки (Flash Cards) | Второй релиз до **23.04**: https://github.com/ilya2204/flash-cards/issues/3 | [flash-cards](https://github.com/ilya2204/flash-cards) |
@@ -48,7 +48,11 @@
 Предстоящие:
 - **Второй релиз:** soft deadline 23.04, hard deadline 30.04.
   - Критерий оценки: «Реализовано **хотя бы два пользовательских сценария (User Story)**: ключевой и дополнительный. **Появилась обработка ошибок и неожиданных ситуаций** (например, файл не найден). **Есть юнит-тесты для всех основных классов** (кроме классов консольных команд), и тестовое покрытие (line/statement) &mdash; 70% или выше.»
-
+- **Третий релиз:** soft deadline 14.05, hard deadline 21.05.
+  - Критерий оценки: «Реализованы **все пользовательские сценарии (User Story)**. Собранный проект **упакован любым из следующих способов**: исполняемый JAR+скрипты для запуска, Docker-образ, GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/
+), jlink (модули для этого определять [не обязательно](https://medium.com/azulsystems/using-jlink-to-build-java-runtimes-for-non-modular-applications-9568c5e70ef4)).»
+- **Четвёртый, финальный релиз**: deadline 28.05
+  - Критерий оценки: «Успешно настроена сборка и тестирование проекта в **системе непрерывной интеграции** Github Actions.»
 
 Общие требования
 ================
@@ -67,17 +71,17 @@
 * смотрит код и может рекомендовать улучшения архитектуры/code style/... (хотя реальный Product Owner не смотрел бы, конечно :-D);
 * общается с командой **через комментарии в пул-реквестах на GitHub'е, на семинарах и лично (Telegram, Slack)**.
 
-С каждой команды – публичное **мини-демо релиза на 5-7 мин.** "через семинар", **начиная с 09.04**: 09.04, 23.04, &hellip;
+С каждой команды – публичное **мини-демо релиза на 5-7 мин.** "через семинар", **начиная с 09.04**: 09.04, 23.04, 14.05, 28.05 &hellip;
 
 Требования к коду
 =================
 
 **ОБЯЗАТЕЛЬНО** должны быть:
-  * Юнит-тесты. **В первом релизе &mdash; желательно, начиная со второго релиза &mdash; обязательно.**
   * Сборка Maven или Gradle (предпочтительнее Maven)
     * https://github.com/nvamelichev/hse-java-spring-2021/blob/main/1_maven/1_maven.pdf
-  * Непрерывная интеграция (GitHub Actions). **Не для первого релиза, а когда пройдём Continuous Integration на семинарах**.
-  * Docker-образ/исполняемый JAR-файл + скрипт для запуска.
+  * Юнит-тесты. **В первом релизе &mdash; желательно, начиная со второго релиза &mdash; обязательно.**
+  * Исполняемый артефакт: Docker-образ/исполняемый JAR-файл+скрипт для запуска/GraalVM native-image/jlink. **К третьему релизу.**
+  * Непрерывная интеграция (GitHub Actions). **К четвёртому, финальному релизу**.
 
 **НЕЛЬЗЯ**:
   * Сделать продукт-обёртку над готовой чужой библиотекой/чужим кодом со StackOverflow. *Например*, шаблонизатор не должен использовать Apache FreeMarker (Java-библиотеку **именно для** шаблонизации)
