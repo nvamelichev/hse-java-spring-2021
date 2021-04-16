@@ -1,0 +1,17 @@
+Configuration:
+  appenders:
+    Console:
+      name: stdout
+      PatternLayout:
+        pattern: "%d{ISO8601_OFFSET_DATE_TIME_HHCMM} [%t] %-5level: %msg%n%throwable"
+
+  Loggers:
+    Root:
+      level: error
+      AppenderRef:
+        - ref: stdout
+    Logger:
+      - name: ru.hse.java
+        level: info
+        AppenderRef:
+          ref: stdout

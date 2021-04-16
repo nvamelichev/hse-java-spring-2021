@@ -1,0 +1,38 @@
+Java Packaging & Containerization
+=================================
+
+- What's a JAR file?
+- BEWARE OF GOLDEN HAMMERS! YOU DON'T NEED CONTAINERS EVERYWHERE!!!
+- Fat JARs + scripts
+- JPMS + jlink. Requires you to cleanly separate your system into modules, which is NO SMALL TASK for anything non-trivial. But as a bonus, you get only the JDK parts you actually use!
+- GraalVM's native-image. Lots of restrictions on class initialization and reflection usage; popular frameworks are somewhat supported). When your app is simple (potentially one-off runs, e.g. command line utilities and AWS Lambda) and fast start (low start latency) outweighs peak throughput. GC and runtime is naive compared to Hotspot, so you will never achieve peak throughput, but will get decent latency even on the 1st run. Project Leyden
+- Virtualization. Deploy your service as a complete VM image. Suitable when you have non-java "sidecars" which cannot be easily run inside a container.
+- Containerization: essentially, Lightweight Virtualization
+  - Main idea is almost the same: include all [relevant, software [not OS and hardware]] dependencies and state
+  - Isolation and Security:
+    - Filesystem isolation: pivot_root (chroot on steroids)
+    - overlayfs: "Union filesystem", separates unchanging parts of the container (e.g. OS binaries, your JAR files) and the transient ones (e.g. temporary files, DB storage, ...); changes are only made in the "top" layer.
+    - cgroups (limit resources: memory, cpu, I/O)
+    - namespaces (limit visibility - pid, mount, network, user...). By default, your process in container is PID 1, like `init` (and with the same responsibilities)
+    - capabilities, seccomp-bpf
+    - container networks (host-network, bridge)
+  - Standardized Packaging (cue image of ISO std shipping containers): Docker images, OCI. Both are LAYERED - don't bring the same thing twice when you change it rarely!
+  - Standardized Delivery: Artifact Repository = Docker Container Registry. Artifact=Layered Image with hash(sha256) and version. DockerHub + private installations + available from all major cloud providers, including Yandex.Cloud
+  - Orchestration, e.g. Kubernetes, Docker Swarm, Amazon ECS. CATTLE NOT PETS!
+  - Implementations: 
+    - Docker and alternatives (e.g., rkt)
+    - Container-optimized OS images (Alpine, distroless). If you are unsatisfied with your current footprint, try another JDK distro, e.g. Liberica JDK from BellSoft is quite lightweight
+    - Container OS's - currently experimental, not recommended yet
+  - Mostly for Linux. On Mac, Docker runs inside a VM. On *BSD OSes there are some similar facilities, e.g. FreeBSD Jails (https://wiki.freebsd.org/ContainerOrchestration)
+- Java in Docker
+  - Building
+    - By hand (ew!)
+    - io.fabric8:docker-maven-plugin and Fat JARs. "Docker" profile (@see cloud-java), docker build/docker run! Docker cleanup commands!!!
+    - Google Jib: Layered Images, no fat JARs. https://phauer.com/2019/no-fat-jar-in-docker-image/
+  - Running (???DEMO???)
+  - Gotchas:
+    - Enable namespace and cgroup-related `java` cmd line switches: -XX:+UseContainerSupport [-XX:InitialRAMPercentage=80 -XX:MaxRAMPercentage=80]
+      - Getting memory and cpu limits is *REALLY HARD*, like, seniors get it wrong. It's not generally your responsibility as a Junior Developer :-D
+    - To properly catch SIGTERM, use ENTRYPOINT ["java"] CMD ["-jar", "your-app.jar"] in Dockerfile, *NOT* RUN. Need to run custom actions, e.g. a shell script? That script must handle signals, e.g. by running java with `exec' and/or by registering signal handler.
+    - You run as PID 1, which is *MOSTLY* harmless, except for when you run something alongside Java, and Zombie processes appear. Just use `docker run --init` and forget about it (c)
+    - App stderr and stdout go to `docker logs` (https://docs.docker.com/config/containers/logging/)
