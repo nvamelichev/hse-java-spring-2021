@@ -5,14 +5,14 @@
 
 | Команда | Проект | Ближайший дедлайн | GitHub |
 | ------- | ------ | ----------------- | ------ |
-| Екатерина Стержанова, <br> Юлия Царева, <br> Зуфар Сафиуллин, <br> Георгий Колесников | 8. Симулятор игры "Жизнь" | Второй релиз до **23.04**: https://github.com/yutsareva/game-of-life/issues/4 | [game-of-life](https://github.com/yutsareva/game-of-life) |
-| Сабина Даянова, <br> Дарья Барановская, <br> Юлия Кошелева | 3. Экстрактор текста | Второй релиз до **23.04**: https://github.com/sabinadayanova/text-extractor/issues/4 | [text-extractor](https://github.com/sabinadayanova/text-extractor) |
-| Алексей Илюхов, <br> Михаил Анопренко, <br> Алексей Соколовский | 4. RPN-калькулятор | Второй релиз до **23.04**: https://github.com/livace/rpn-calculator/issues/10 | [rpn-calculator](https://github.com/livace/rpn-calculator) |
-| Петр Молодык, <br> Данила Седашов, <br> Екатерина Булатова, <br> Наталья Денисенко | **\*** Мод для Minecraft | Второй релиз до **23.04**: https://github.com/pmolodyk/MinecraftFabricMod/issues/3 | [Minecraft Mod](https://github.com/pmolodyk/MinecraftFabricMod) |
-| Александр Латышев, <br> Искандер Ямбулатов, <br> Максим Минченок | 1. Консольный органайзер | Второй релиз до **23.04**: https://github.com/hypersousage/console-organizer/issues/5 | [console-organizer](https://github.com/hypersousage/console-organizer) |
-| Елена Семерова, <br> Константин Еленик, <br> Игорь Глушков | 11. Трекер времени по системе Pomodoro | Второй релиз до **23.04**: https://github.com/igoroogle/pomodoros/issues/3 | [pomodoros](https://github.com/igoroogle/pomodoros) |
-| Константин Матвеев, <br> Андрей Ветров, <br> Тимур Ваньков, <br> Артём Самарин | 5. Статистика по исходному коду на C-like языках программирования | Второй релиз до **23.04**: https://github.com/vetand/code-statistics/issues/15 | [code-statistics](https://github.com/vetand/code-statistics) |
-| Борис Шошин, <br> Илья Зюляев | 10. Карточки-запоминалки (Flash Cards) | Второй релиз до **23.04**: https://github.com/ilya2204/flash-cards/issues/3 | [flash-cards](https://github.com/ilya2204/flash-cards) |
+| Екатерина Стержанова, <br> Юлия Царева, <br> Зуфар Сафиуллин, <br> Георгий Колесников | 8. Симулятор игры "Жизнь" | Третий релиз до **??.??**: https://github.com/yutsareva/game-of-life/issues/5 | [game-of-life](https://github.com/yutsareva/game-of-life) |
+| Сабина Даянова, <br> Дарья Барановская, <br> Юлия Кошелева | 3. Экстрактор текста | Третий релиз до **??.??**: https://github.com/sabinadayanova/text-extractor/issues/10 | [text-extractor](https://github.com/sabinadayanova/text-extractor) |
+| Алексей Илюхов, <br> Михаил Анопренко, <br> Алексей Соколовский | 4. RPN-калькулятор | Третий релиз до **??.??**: https://github.com/livace/rpn-calculator/issues/12 | [rpn-calculator](https://github.com/livace/rpn-calculator) |
+| Петр Молодык, <br> Данила Седашов, <br> Екатерина Булатова, <br> Наталья Денисенко | **\*** Мод для Minecraft | Третий релиз до **??.??**: https://github.com/pmolodyk/MinecraftFabricMod/issues/5 | [Minecraft Mod](https://github.com/pmolodyk/MinecraftFabricMod) |
+| Александр Латышев, <br> Искандер Ямбулатов, <br> Максим Минченок | 1. Консольный органайзер | **[пропустили дедлайн]** Второй релиз до **??.??**: https://github.com/hypersousage/console-organizer/issues/5 | [console-organizer](https://github.com/hypersousage/console-organizer) |
+| Елена Семерова, <br> Константин Еленик, <br> Игорь Глушков | 11. Трекер времени по системе Pomodoro | Третий релиз до **??.??**: https://github.com/igoroogle/pomodoros/issues/4 | [pomodoros](https://github.com/igoroogle/pomodoros) |
+| Константин Матвеев, <br> Андрей Ветров, <br> Тимур Ваньков, <br> Артём Самарин | 5. Статистика по исходному коду на C-like языках программирования | Третий релиз до **??.??**: https://github.com/vetand/code-statistics/issues/22 | [code-statistics](https://github.com/vetand/code-statistics) |
+| Борис Шошин, <br> Илья Зюляев | 10. Карточки-запоминалки (Flash Cards) | Третий релиз до **??.??**: https://github.com/ilya2204/flash-cards/issues/4 | [flash-cards](https://github.com/ilya2204/flash-cards) |
 
 **\*** &mdash; повышенный уровень сложности
 
@@ -43,15 +43,15 @@
     - [не рекомендуется] Код на Java или псевдокод, если кода немного и он хорошо документирован (классы + методы без тел, все с документацией)
 - **Первый релиз:** soft deadline 09.04, hard deadline 16.04.
   - Критерий оценки: «Код **локально собирается** в исполняемый JAR-файл с помощью Maven/Gradle. JAR-файл **успешно запускается** `java -jar <jarfile.jar>`. Покрыт **хотя бы один ключевой пользовательский сценарий (User Story)**. Наличие работающих юнит-тестов к первому релизу будет преимуществом»
+- **Второй релиз:** soft deadline 23.04, hard deadline 30.04.
+  - Критерий оценки: «Реализовано **хотя бы два пользовательских сценария (User Story)**: ключевой и дополнительный. **Появилась обработка ошибок и неожиданных ситуаций** (например, файл не найден). **Есть юнит-тесты для всех основных классов** (кроме классов консольных команд), и тестовое покрытие (line/statement) &mdash; 70% или выше.»
 </details>
 
 Предстоящие:
-- **Второй релиз:** soft deadline 23.04, hard deadline 30.04.
-  - Критерий оценки: «Реализовано **хотя бы два пользовательских сценария (User Story)**: ключевой и дополнительный. **Появилась обработка ошибок и неожиданных ситуаций** (например, файл не найден). **Есть юнит-тесты для всех основных классов** (кроме классов консольных команд), и тестовое покрытие (line/statement) &mdash; 70% или выше.»
-- **Третий релиз:** soft deadline 14.05, hard deadline 21.05.
+- **Третий релиз:** soft deadline ??.0?, hard deadline ??.05.
   - Критерий оценки: «Реализованы **все пользовательские сценарии (User Story)**. Собранный проект **упакован любым из следующих способов**: исполняемый JAR+скрипты для запуска, Docker-образ, GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/
 ), jlink (модули для этого определять [не обязательно](https://medium.com/azulsystems/using-jlink-to-build-java-runtimes-for-non-modular-applications-9568c5e70ef4)).»
-- **Четвёртый, финальный релиз**: deadline 28.05
+- **Четвёртый, финальный релиз**: deadline ??.05, hard deadline ??.05.
   - Критерий оценки: «Успешно настроена сборка и тестирование проекта в **системе непрерывной интеграции** Github Actions.»
 
 Общие требования
@@ -71,7 +71,7 @@
 * смотрит код и может рекомендовать улучшения архитектуры/code style/... (хотя реальный Product Owner не смотрел бы, конечно :-D);
 * общается с командой **через комментарии в пул-реквестах на GitHub'е, на семинарах и лично (Telegram, Slack)**.
 
-С каждой команды – публичное **мини-демо релиза на 5-7 мин.** "через семинар", **начиная с 09.04**: 09.04, 23.04, 14.05, 28.05 &hellip;
+С каждой команды – публичное **мини-демо релиза на 5-7 мин.**. Демонстрации проводятся "через семинар", **начиная с 09.04**: ~~09.04~~ -> ~~23.04~~ -> ??.?? -> ??.??.
 
 Требования к коду
 =================
