@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>echo-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>ru.hse.java</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../1_maven/demo/parent</relativePath>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.18.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.7.7</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Executable Fat JAR + run script:
+                 $ ./run.sh -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-assembly-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <archive>-->
+            <!--                        <manifest>-->
+            <!--                            <mainClass>ru.hse.java.EchoServer</mainClass>-->
+            <!--                        </manifest>-->
+            <!--                    </archive>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
+            <!-- Docker: Manual Dockerfile with Fat JAR (method #0) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ru.hse.java.EchoServer</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Method #0 DEMO:
+	    # In terminal 1:
+	    $ less ./build_docker_image_manual.sh
+            
+            $ ./build_docker_image_manual.sh
+            <...>
+            Successfully built 2b42b81b0b17
+            Successfully tagged cr.yandex/crp024d3b67qde0rnl3r/echo-server:latest
+
+            $ docker run -\-rm -it -p 48484:48484 cr.yandex/crp024d3b67qde0rnl3r/echo-server:latest
+
+            # In terminal 2:
+            $ netstat -nat | grep :48484
+            tcp        0      0 0.0.0.0:48484           0.0.0.0:*               LISTEN
+            tcp6       0      0 :::48484                :::*                    LISTEN
+
+            $ telnet localhost 48484
+            Trying 127.0.0.1...
+            Connected to localhost.
+            Escape character is '^]'.
+            Hi
+            Hi
+            Goodbye
+            Goodbye
+            END
+            Connection closed by foreign host.
+            -->
+
+            <!-- Docker: JAR + dependency JARs (method #1) -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-jar-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <archive>-->
+            <!--                        <manifest>-->
+            <!--                            <mainClass>ru.hse.java.EchoServer</mainClass>-->
+            <!--                        </manifest>-->
+            <!--                    </archive>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>io.fabric8</groupId>-->
+            <!--                <artifactId>docker-maven-plugin</artifactId>-->
+            <!--                <version>0.30.0</version>-->
+            <!--                <configuration>-->
+            <!--                    <images>-->
+            <!--                        <image>-->
+            <!--                            <name>${project.artifactId}:${project.version}</name>-->
+            <!--                            <build>-->
+            <!--                                <from>bellsoft/liberica-openjdk-alpine-musl:15.0.2-10</from>-->
+            <!--                                <assembly>-->
+            <!--                                    <descriptorRef>artifact-with-dependencies</descriptorRef>-->
+            <!--                                </assembly>-->
+            <!--                                <cmd>-->
+            <!--                                    <exec>-->
+            <!--                                        <arg>java</arg>-->
+            <!--                                        <arg>-jar</arg>-->
+            <!--                                        <arg>maven/${project.build.finalName}.jar</arg>-->
+            <!--                                    </exec>-->
+            <!--                                </cmd>-->
+            <!--                            </build>-->
+            <!--                        </image>-->
+            <!--                    </images>-->
+            <!--                </configuration>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <phase>package</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>build</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+
+            <!-- ...and then you need to docker {tag, push} -->
+
+            <!-- Docker: Google Jib (method #2) -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-jar-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <skip>true</skip>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>com.google.cloud.tools</groupId>-->
+            <!--                <artifactId>jib-maven-plugin</artifactId>-->
+            <!--                <version>3.0.0</version>-->
+            <!--                <configuration>-->
+            <!--                    <from>-->
+            <!--                        <image>-->
+            <!--                            cr.yandex/crp024d3b67qde0rnl3r/bellsoft/liberica-openjdk-alpine-musl:15.0.2-1-->
+            <!--                        </image>-->
+            <!--                    </from>-->
+            <!--                    <to>-->
+            <!--                        <image>cr.yandex/crp024d3b67qde0rnl3r/${project.artifactId}:latest</image>-->
+            <!--                    </to>-->
+            <!--                </configuration>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>build-and-push-docker-image</id>-->
+            <!--                        <phase>package</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>build</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
