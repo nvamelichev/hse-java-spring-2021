@@ -49,10 +49,10 @@
 
 Предстоящие:
 - **Третий релиз:** soft deadline 30.04, hard deadline 21.05.
-  - Критерий оценки: «Реализованы **все пользовательские сценарии (User Story)**. Будет преимуществом (но не строго обязательно), если ваш проект **упакован любым из следующих способов**: Docker-образ, GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/
+  - Критерий оценки: «Реализованы **все пользовательские сценарии (User Story)**. Будет преимуществом (но не строго обязательно), если ваш проект **упакован любым из следующих способов**: [Docker-образ](https://github.com/nvamelichev/hse-java-spring-2021/blob/main/8_containers/demo/pom.xml#L60-L180), GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/
 ), [jlink](https://medium.com/azulsystems/using-jlink-to-build-java-runtimes-for-non-modular-applications-9568c5e70ef4)).»
 - **Четвёртый, финальный релиз**: deadline 21.05, hard deadline 28.05.
-  - Критерий оценки: «Исправлены все проблемы, обнаруженные в предыдущих релизах. Проект **упакован любым из следующих способов**: Docker-образ, GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/
+  - Критерий оценки: «Исправлены все проблемы, обнаруженные в предыдущих релизах. Проект **упакован любым из следующих способов**: [Docker-образ](https://github.com/nvamelichev/hse-java-spring-2021/blob/main/8_containers/demo/pom.xml#L60-L180), GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/
 ), [jlink](https://medium.com/azulsystems/using-jlink-to-build-java-runtimes-for-non-modular-applications-9568c5e70ef4)). В **системе непрерывной интеграции** Github Actions успешно настроена сборка проекта из `main`, а также тестирование проекта в `main` и фича-бранчах (`feature/*`).»
 
 Общие требования
