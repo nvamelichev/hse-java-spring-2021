@@ -11,3 +11,4 @@ Presentations and additional resources for HSE Java Course / Spring 2021 (https:
   - OOD (sem 4): https://github.com/nvamelichev/hse-java-spring-2021/blob/main/2_ood/2_ood.pdf
   - Patterns (sem 5): https://github.com/nvamelichev/hse-java-spring-2021/blob/main/3_patterns/3_patterns.pdf
   - Testing, Part 1 (sem 6): https://github.com/nvamelichev/hse-java-spring-2021/blob/main/4_testing/4_testing.pdf
+  - Containers (sem 8): https://github.com/nvamelichev/hse-java-spring-2021/blob/main/7_containers/7_containers.pdf
