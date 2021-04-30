@@ -50,8 +50,11 @@
 </details>
 
 Предстоящие:
-- **Четвёртый, финальный релиз**: deadline 21.05, hard deadline 28.05.
-  - Критерий оценки: «Исправлены все проблемы, обнаруженные в предыдущих релизах. Проект **упакован любым из следующих способов**: [Docker-образ](https://github.com/nvamelichev/hse-java-spring-2021/blob/main/8_containers/demo/pom.xml#L60-L180), GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/), [jlink](https://medium.com/azulsystems/using-jlink-to-build-java-runtimes-for-non-modular-applications-9568c5e70ef4)). В **системе непрерывной интеграции** (например, Github Actions) успешно настроено тестирование проекта на каждый коммит в ветке `main` и в пул-реквестах.»
+- **Четвёртый, финальный релиз**: deadline 21.05, hard deadline 28.05. Критерии оценки: 
+    - **Исправлены все проблемы**, обнаруженные в предыдущих релизах. 
+    - Проект **упакован любым из следующих способов**: [Docker-образ](https://github.com/nvamelichev/hse-java-spring-2021/blob/main/8_containers/demo/pom.xml#L60-L180), GraalVM [native-image](https://www.graalvm.org/reference-manual/native-image/), [jlink](https://medium.com/azulsystems/using-jlink-to-build-java-runtimes-for-non-modular-applications-9568c5e70ef4). 
+    - В **системе непрерывной интеграции**, интегрированной с GitHub (Github Actions, Travis CI, ...), успешно настроен **запуск тестов** на каждый коммит в ветке `main` и в пул-реквестах. 
+    - [необязательно] Если в CI дополнительно настроена сборка проекта из `main` в исполняемый артефакт (докер-образ, native-image, jlink), **это будет преимуществом**.»
 
 Общие требования
 ================
