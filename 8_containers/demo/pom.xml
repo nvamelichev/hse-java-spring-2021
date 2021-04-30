@@ -58,17 +58,17 @@
             <!--            </plugin>-->
 
             <!-- Docker: Manual Dockerfile with Fat JAR (method #0) -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>ru.hse.java.EchoServer</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-assembly-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <archive>-->
+            <!--                        <manifest>-->
+            <!--                            <mainClass>ru.hse.java.EchoServer</mainClass>-->
+            <!--                        </manifest>-->
+            <!--                    </archive>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
 
             <!-- Method #0 DEMO:
 	    # In terminal 1:
@@ -147,37 +147,37 @@
             <!-- ...and then you need to docker {tag, push} -->
 
             <!-- Docker: Google Jib (method #2) -->
-            <!--            <plugin>-->
-            <!--                <groupId>org.apache.maven.plugins</groupId>-->
-            <!--                <artifactId>maven-jar-plugin</artifactId>-->
-            <!--                <configuration>-->
-            <!--                    <skip>true</skip>-->
-            <!--                </configuration>-->
-            <!--            </plugin>-->
-            <!--            <plugin>-->
-            <!--                <groupId>com.google.cloud.tools</groupId>-->
-            <!--                <artifactId>jib-maven-plugin</artifactId>-->
-            <!--                <version>3.0.0</version>-->
-            <!--                <configuration>-->
-            <!--                    <from>-->
-            <!--                        <image>-->
-            <!--                            cr.yandex/crp024d3b67qde0rnl3r/bellsoft/liberica-openjdk-alpine-musl:15.0.2-1-->
-            <!--                        </image>-->
-            <!--                    </from>-->
-            <!--                    <to>-->
-            <!--                        <image>cr.yandex/crp024d3b67qde0rnl3r/${project.artifactId}:latest</image>-->
-            <!--                    </to>-->
-            <!--                </configuration>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <id>build-and-push-docker-image</id>-->
-            <!--                        <phase>package</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>build</goal>-->
-            <!--                        </goals>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <from>
+                        <image>
+                            cr.yandex/crp024d3b67qde0rnl3r/bellsoft/liberica-openjdk-alpine-musl:15.0.2-1
+                        </image>
+                    </from>
+                    <to>
+                        <image>cr.yandex/crp024d3b67qde0rnl3r/${project.artifactId}:latest</image>
+                    </to>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build-and-push-docker-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

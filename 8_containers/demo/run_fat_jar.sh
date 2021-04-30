@@ -1,4 +1,4 @@
 #!/bin/sh
 
 PROJECTROOT=$(dirname "$(realpath "$0")")
-exec java -jar "${PROJECTROOT}/target/echo-server-1.0-SNAPSHOT-jar-with-dependencies.jar"
+java -jar "${PROJECTROOT}/target/echo-server-1.0-SNAPSHOT-jar-with-dependencies.jar"
