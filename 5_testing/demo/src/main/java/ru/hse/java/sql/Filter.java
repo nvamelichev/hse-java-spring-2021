@@ -9,22 +9,32 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toUnmodifiableList;
 
-public sealed interface Filter permits Filter.Leaf, Filter.Composite {
-    Stream<Filter> children();
+public abstract sealed class Filter permits Filter.Leaf, Filter.Composite {
+    abstract Stream<Filter> children();
 
-    String toSql();
+    abstract String toSql();
 
-    <R> R visit(FilterVisitor<R> visitor);
+    abstract <R> R visit(FilterVisitor<R> visitor);
 
-    default Filter negate() {
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Filter f && f.toSql().equals(this.toSql());
+    }
+
+    @Override
+    public int hashCode() {
+        return toSql().hashCode();
+    }
+
+    public Filter negate() {
         return new Not(this);
     }
 
-    default Filter and(Filter other) {
+    public Filter and(Filter other) {
         return new And(List.of(this, other));
     }
 
-    default Filter or(Filter other) {
+    public Filter or(Filter other) {
         return new Or(List.of(this, other));
     }
 
@@ -52,7 +62,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         return value == null ? new NullRel(param, NullRel.Type.NEQ) : new ScalarRel(param, ScalarRel.Type.NEQ, value);
     }
 
-    sealed abstract class Leaf implements Filter permits Filter.AlwaysTrue, Filter.AlwaysFalse, Filter.ScalarRel, Filter.NullRel {
+    sealed static abstract class Leaf extends Filter permits Filter.AlwaysTrue, Filter.AlwaysFalse, Filter.ScalarRel, Filter.NullRel {
         @Override
         public final Stream<Filter> children() {
             return Stream.of();
@@ -64,7 +74,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    final class NullRel extends Leaf {
+    static final class NullRel extends Leaf {
         private final String param;
         private final Type relType;
 
@@ -113,7 +123,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    final class ScalarRel extends Leaf {
+    static final class ScalarRel extends Leaf {
         private final String param;
         private final Type relType;
         private final Object value;
@@ -167,7 +177,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    final class AlwaysTrue extends Leaf {
+    static final class AlwaysTrue extends Leaf {
         private static final Filter INSTANCE = new AlwaysTrue();
 
         @Override
@@ -193,7 +203,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    final class AlwaysFalse extends Leaf {
+    static final class AlwaysFalse extends Leaf {
         private static final Filter INSTANCE = new AlwaysTrue();
 
         @Override
@@ -219,14 +229,14 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    sealed abstract class Composite implements Filter permits Filter.And, Filter.Or, Filter.Not {
+    sealed static abstract class Composite extends Filter permits Filter.And, Filter.Or, Filter.Not {
         @Override
         public final <R> R visit(FilterVisitor<R> visitor) {
             return visitor.visitComposite(this);
         }
     }
 
-    final class And extends Filter.Composite {
+    static final class And extends Filter.Composite {
         private final List<Filter> children;
 
         private And(List<Filter> children) {
@@ -249,7 +259,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    final class Or extends Filter.Composite {
+    static final class Or extends Filter.Composite {
         private final List<Filter> children;
 
         private Or(List<Filter> children) {
@@ -272,7 +282,7 @@ public sealed interface Filter permits Filter.Leaf, Filter.Composite {
         }
     }
 
-    final class Not extends Filter.Composite {
+    static final class Not extends Filter.Composite {
         private final Filter delegate;
 
         private Not(Filter delegate) {
