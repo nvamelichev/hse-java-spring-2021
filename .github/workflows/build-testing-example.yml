@@ -21,9 +21,15 @@ jobs:
         java-version: '15'
         distribution: 'adopt'
     - name: Build Parent POM
-      run: mvn -B clean install --file 1_maven/demo/parent/pom.xml
+      run: mvn -B --update-snapshots --file 1_maven/demo/parent/pom.xml clean install
     - name: Build and Test 5_testing
-      run: mvn -T1C -B clean verify --file 5_testing/demo/pom.xml
+      run: mvn -T1C -B --update-snapshots --file 5_testing/demo/pom.xml clean verify
+    - name: Cache Maven Packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Publish Test Report
       if: ${{ always() }}
       uses: scacap/action-surefire-report@v1
