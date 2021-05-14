@@ -24,3 +24,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B --file 5_testing/demo/pom.xml --update-snapshots verify
+      
+    - name: Publish Test Report
+      if: ${{ always() }}
+      uses: scacap/action-surefire-report@v1
