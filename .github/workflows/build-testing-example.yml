@@ -20,8 +20,11 @@ jobs:
       with:
         java-version: '15'
         distribution: 'adopt'
-    - name: Build parent POM
+    - name: Build Parent POM
       run: mvn -B clean install --file 1_maven/demo/parent/pom.xml
-    - name: Build and test 5_testing
+    - name: Build and Test 5_testing
       run: mvn -T1C -B clean verify --file 5_testing/demo/pom.xml
+    - name: Publish Test Report
+      if: ${{ always() }}
+      uses: scacap/action-surefire-report@v1
 
