@@ -21,9 +21,9 @@ jobs:
         java-version: '15'
         distribution: 'adopt'
     - name: Build Parent POM
-      run: mvn -B --update-snapshots --file 1_maven/demo/parent/pom.xml clean install
+      run: mvn -B --update-snapshots --file 1_maven/demo/parent/pom.xml install
     - name: Build and Test 5_testing
-      run: mvn -T1C -B --update-snapshots --file 5_testing/demo/pom.xml clean verify
+      run: mvn -T1C -B --update-snapshots --file 5_testing/demo/pom.xml verify
     - name: Cache Maven Packages
       uses: actions/cache@v2
       with:
