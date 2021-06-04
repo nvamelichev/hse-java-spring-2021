@@ -14,5 +14,8 @@ Presentations and additional resources for HSE Java Course / Spring 2021 (https:
   6. Containers: https://github.com/nvamelichev/hse-java-spring-2021/blob/main/7_containers/7_containers.pdf
   7. Inversion of Control and Dependency Injection, Part 1: https://github.com/nvamelichev/hse-java-spring-2021/blob/main/9_di/9_di.pdf
 - Demo Code:
-  1. Building Docker container for Java app: https://github.com/nvamelichev/hse-java-spring-2021/tree/main/8_containers/demo
-  2. Dependency Injection via Google Dagger: https://github.com/nvamelichev/hse-java-spring-2021/tree/main/10_di/demo
+  1. Maven: https://github.com/nvamelichev/hse-java-spring-2021/tree/main/1_maven/demo
+  2. OOD - PlantUML Diagrams: https://github.com/nvamelichev/hse-java-spring-2021/tree/main/2_ood/demo
+  3. Testing (JUnit 4): https://github.com/nvamelichev/hse-java-spring-2021/tree/main/5_testing/demo
+  4. Building Docker container for Java app: https://github.com/nvamelichev/hse-java-spring-2021/tree/main/8_containers/demo
+  5. Dependency Injection via Google Dagger: https://github.com/nvamelichev/hse-java-spring-2021/tree/main/10_di/demo
