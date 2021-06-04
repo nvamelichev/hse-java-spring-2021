@@ -1,7 +1,6 @@
 package ru.hse.java.scraper;
 
 import dagger.Component;
-import ru.hse.java.scraper.dagger.AssistedInjectModule;
 import ru.hse.java.scraper.dagger.BindsDemoModule;
 import ru.hse.java.scraper.dagger.LoggerModule;
 import ru.hse.java.scraper.dagger.ScraperModule;
@@ -31,7 +30,6 @@ public final class ScraperApp {
             ScraperModule.class,
             LoggerModule.class,
             BindsDemoModule.class,
-            AssistedInjectModule.class
     })
     public interface Factory {
         ScraperApp app();
